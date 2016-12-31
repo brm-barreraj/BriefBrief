@@ -1,0 +1,72 @@
+x<ion-view title="Brm Interna Brief" id="page14" class=" ">
+    <ion-content padding="true" class="has-header">
+        <ion-list id="brmInternaBrief-list13" class=" ">
+            <ion-item class="item-avatar  " id="brmInternaBrief-list-item32">
+                <h2>{{brief.titulo}}</h2>
+            </ion-item>
+        </ion-list>
+        <div id="brmInternaBrief-button-bar2" class=" button-bar ">
+            <button id="brmInternaBrief-button9" class=" button button-royal  button-block button-outline ">Respondida</button>
+            <button id="brmInternaBrief-button13" class=" button button-royal  button-block button-outline icon-left ion-ios-clock ">A tiempo</button>
+        </div>
+        <div class="item item-body item-borderless" id="brmInternaBrief-list-item-container16">
+            <p id="brmInternaBrief-markdown25" style="margin-top:0px;color:#000000;" class=" ">Visto por:</p>
+        </div>
+        <div class="item item-body " id="brmInternaBrief-list-item-container17">
+            <p id="brmInternaBrief-markdown26" style="margin-top:0px;color:#5B9AA9;" class=" ">
+                <strong>Objetivo:</strong>
+            </p>
+            <p id="brmInternaBrief-markdown27" style="margin-top:0px;color:#000000;" class=" ">{{brief.objetivo}}</p>
+        </div>
+        <div class="item item-body " id="brmInternaBrief-list-item-container18">
+            <p id="brmInternaBrief-markdown28" style="margin-top:0px;color:#5B9AA9;" class=" ">
+                <strong>Resultados esperados</strong>
+            </p>
+            <p id="brmInternaBrief-markdown29" style="color:#000000;" class=" ">{{brief.resultado}}</p>
+        </div>
+        <div class="item item-body " id="brmInternaBrief-list-item-container19">
+            <p id="brmInternaBrief-markdown30" style="margin-top:0px;color:#5B9AA9;" class=" ">
+                <strong>Mapa de empatía</strong>
+            </p>
+            <p id="brmInternaBrief-markdown31" style="color:#000000;" class=" ">{{brief.empatia}}</p>
+        </div>
+        <div class="item item-body item-borderless" id="brmInternaBrief-list-item-container21">
+            <p id="brmInternaBrief-markdown37" style="margin-top:0px;color:#5B9AA9;" class=" ">
+                <strong>Programar reunión:</strong>
+            </p>
+            <div id="brmInternaBrief-button-bar4" class=" button-bar" ng-if="brief.idEstado == 1" ng-click="goProgramar(brief.id);">
+                <a id="brmInternaBrief-button17" style="font-size:12px;" class=" button button-royal button-small button-block icon-left ion-android-calendar "> Programar reunión</a>
+            </div>
+
+            <div id="brmInternaBrief-button-bar4" class=" button-bar" ng-if="brief.idEstado != 1" ng-click="goProgramar(brief.id);">
+                <a id="brmInternaBrief-button17" style="font-size:8px;" class=" button button-royal button-small button-block icon-left ion-android-calendar ">{{brief.fechaCompromiso}}</a>
+                <a id="brmInternaBrief-button18" style="font-size:8px;" class=" button button-royal button-small button-block icon-left ion-android-time ">{{brief.horaCompromiso}}</a>
+                <a id="brmInternaBrief-button19" style="font-size:8px;border-radius:0px 0px 0px 0px;" class=" button button-royal button-small button-block icon-left ion-android-pin ">
+                    <span ng-if="brief.idTipoCompromiso == 1">Llamada</span>
+                    <span ng-if="brief.idTipoCompromiso == 2">Brm</span>
+                    <span ng-if="brief.idTipoCompromiso == 3">Cliente</span>
+                </a>
+            </div>
+        </div>
+        <div class="list card " id="internaBrief-card22" ng-if="brief.idEstado != 1">
+            <div class="item item-body " id="internaBrief-list-item-container9">
+                <p id="internaBrief-markdown11" style="margin-top:0px;color:#000000;" class=" ">
+                    <strong>Fecha de la reunión:</strong> {{brief.fechaCompromiso }}</p>
+                <p id="internaBrief-markdown13" style="color:#000000;" class=" ">
+                    <strong>Hora de la reunión:</strong> {{brief.horaCompromiso}}</p>
+                <p id="internaBrief-markdown12" style="color:#000000;" class=" ">
+                    <strong>Lugar de la reunión:</strong> 
+                    <span ng-if="brief.idTipoCompromiso == 1">Llamada</span>
+                    <span ng-if="brief.idTipoCompromiso == 2">Brm</span>
+                    <span ng-if="brief.idTipoCompromiso == 3">Cliente</span>
+                </p>
+                <p id="internaBrief-markdown14" style="color:#000000;" class=" ">
+                    <strong>Mensaje:</strong>
+                </p>
+                <p id="internaBrief-markdown15" style="color:#000000;" class=" ">
+                    {{brief.mensajeCompromiso}}
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view title="Crear Brief P2" id="page10" class=" ">
+    <ion-content padding="true" class="has-header">
+        <form id="crearBriefP2-form4" class="list ">
+            <ion-item class="item-icon-left royal  item-borderless" id="crearBriefP2-list-item22">
+                <i class="icon ion-ios-list"></i>CREA TU BRIEF</ion-item>
+        </form>
+        <div class="item item-body item-borderless" id="crearBriefP2-list-item-container11">
+            <p id="crearBriefP2-markdown17" style="margin-top:0px;color:#5B9AA9;" class=" ">
+                <strong>Busca tu objetivo</strong>
+            </p>
+            <p id="crearBriefP2-markdown18" style="color:#000000;" class=" ">Con BriefBrief tienes la posibilidad de proponer una idea para tu marca potenciando.</p>
+        </div>
+        <form id="crearBriefP2-form5" class="list ">
+            <label class="item item-input btn-brief" id="crearBriefP2-input6" name="titulo">
+                <input type="text" placeholder="Escribe el título del Brief" ng-model="brief.titulo">
+            </label>
+            <div class="spacer" style="width: 300px; height: 14px;"></div>
+            <label class="item item-input btn-brief" id="crearBriefP2-input7" name="fecha">
+                <input type="date" placeholder="Fecha" ng-model="brief.fechaPropuesta">
+            </label>
+            <div class="spacer" style="width: 300px; height: 14px;"></div>
+            <label class="item item-input btn-brief" id="crearBriefP2-textarea1">
+                <textarea placeholder="Escribe tu brief" ng-model="brief.objetivo"></textarea>
+            </label>
+        </form>
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <a ng-click="next(brief)" id="crearBriefP2-button10" class=" button button-royal  button-block ">Continuar</a>
+    </ion-content>
+</ion-view>

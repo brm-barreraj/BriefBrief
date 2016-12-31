@@ -1,0 +1,30 @@
+<ion-view id="page5" class=" ">
+    <ion-nav-bar>
+        <ion-nav-back-button style="color: #5B9AA9;"></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content padding="true" class=" manual-remove-top-padding" scroll="false">
+        <form id="login-form1" class="list ">
+            <div class="icon-tipo-usuario hide-on-keyboard-open">
+                <img ng-class="tipoUsuario == 2 ? 'icon-brm' : 'icon-cliente'">
+            </div>
+            <div class="item item-body item-borderless" id="login-list-item-container14">
+                <p id="login-markdown23" style="margin-top:0px;color:#5B9AA9;text-align:center;" class=" ">
+                    <strong ng-if="tipoUsuario == 2">ERES BRM</strong>
+                    <strong ng-if="tipoUsuario != 2">ERES CLIENTE</strong>
+                </p>
+            </div>
+            <div class="spacer" style="width: 300px; height: 24px;"></div>
+            <ion-list id="login-list1" class=" ">
+                <label class="item item-input btn-brief" id="login-input1">
+                    <input type="text" ng-model="usuario.user" placeholder="Username">
+                </label>
+            </ion-list>
+            <div class="spacer" style="width: 300px; height: 19px;"></div>
+            <label class="item item-input btn-brief" id="login-input2">
+                <input type="password" ng-model="usuario.pass" placeholder="Password">
+            </label>
+            <div class="spacer" style="width: 300px; height: 28px;"></div>
+            <a ng-click="login()" id="login-button1" class=" button button-royal  button-block ">Continuar</a>
+        </form>
+    </ion-content>
+</ion-view>

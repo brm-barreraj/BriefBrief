@@ -1,0 +1,13 @@
+<ion-view title="Consulta tus briefs" id="page13" hide-back-button="true">
+    <ion-content padding="true" class="has-header">
+        <ion-list id="consultaTusBriefs-list9" class=" ">
+            <ion-item class="item-icon-left royal  item-borderless" id="consultaTusBriefs-list-item19">
+                <i class="icon ion-ios-list"></i>SELECCIONA TU MARCA</ion-item>
+        </ion-list>
+        <div class="">
+            <a class="item-marca" ng-repeat="marca in marcas" ng-click="next(marca.id)">
+                {{marca.nombre}}
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    
+    
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    
+    <link href="css/ionic.app.css" rel="stylesheet">
+    
+
+    <style type="text/css">
+      .platform-ios .manual-ios-statusbar-padding{
+        padding-top:20px;
+      }
+      .manual-remove-top-padding{
+        padding-top:0px; 
+      }
+      .manual-remove-top-padding .scroll{
+        padding-top:0px !important;
+      }
+      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+        margin-left:-10px;
+        margin-right:-10px;
+      }
+      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+        border-radius:0px;
+        border-left:0px;
+        border-right: 0px;
+      }
+    </style>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    
+     
+    <script src="js/directives.js"></script>
+     
+    <script src="js/services.js"></script>
+    
+
+    <!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+    <div>
+
+       <!--  <ion-header-bar align-title="center" class="bar-positive">
+          <div class="buttons">
+            <button class="button" ng-click="doSomething()">Left Button</button>
+          </div>
+          <h1 class="title"><img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="43" /></h1>
+          <div class="buttons">
+            <button class="button">Right Button</button>
+          </div>
+        </ion-header-bar> -->
+
+      <ion-side-menus enable-menu-with-back-views="true" data-componentid="side-menu21" ng-controller="menuCtrl">
+        <ion-side-menu-content>
+            <ion-nav-bar class="bar-royal">
+                <ion-nav-back-button></ion-nav-back-button>
+                <ion-nav-buttons side="right">
+                  <button ng-if="statusAddBrief" ng-click="goAddBrief()" class="button button-icon  ion-plus-circled" menu-toggle="right" style="margin-right:20px"></button>
+                  <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+                </ion-nav-buttons>
+            </ion-nav-bar>
+            <ion-nav-view></ion-nav-view>
+        </ion-side-menu-content>
+        <ion-side-menu side="right" id="side-menu21" style="background-color:#FFFFFF;">
+            <ion-header-bar class="bar-royal">
+                <div class="title">Menu</div>
+            </ion-header-bar>
+            <ion-content padding="false" class="side-menu-right has-header">
+                <ion-list id="menu-list11" class=" " data-componentid="list11">
+                    <ion-item id="menu-list-item23" ui-sref="tabsController.activos" menu-close="" class="  " data-componentid="list-item23">Activos</ion-item>
+                    <ion-item id="menu-list-item24" ui-sref="tabsController.pendientes" menu-close="" class="  " data-componentid="list-item24">Pendientes</ion-item>
+                    <ion-item id="menu-list-item25" ui-sref="tabsController.cerrados" menu-close="" class="  " data-componentid="list-item25">Cerrados</ion-item>
+                    <ion-item ng-if="statusAddBrief" id="menu-list-item28" ui-sref="crearBriefP1" menu-close="" class="  " data-componentid="list-item28">Crear Brief</ion-item>
+                    <ion-item id="menu-list-item30" ng-click="logout()" menu-close="" class="  " data-componentid="list-item30">Cerrar sesión</ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-side-menu>
+    </ion-side-menus>
+    </div>
+  </body>
+</html>

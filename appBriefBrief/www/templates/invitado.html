@@ -1,0 +1,32 @@
+<ion-view hide-nav-bar="false" id="page6" class=" ">
+    <ion-nav-bar>
+        <ion-nav-back-button style="color: #5B9AA9;"></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content padding="true" class="manual-ios-statusbar-padding" scroll="false">
+        <div class="icon-tipo-usuario hide-on-keyboard-open">
+            <img class="icon-cliente">
+        </div>
+        <div class="item item-body item-borderless" id="invitado-list-item-container3">
+            <p id="invitado-markdown3" style="margin-top:0px;color:#5B9AA9;text-align:center;" class=" ">
+                <strong>Eres Invitado</strong>
+            </p>
+        </div>
+        <form id="invitado-form2" class="list ">
+            <label class="item item-input btn-brief" id="invitado-input3" name="nombre">
+                <input type="text" placeholder="Nombre" ng-model="usuario.nombre">
+            </label>
+            <div class="spacer" style="width: 300px; height: 14px;"></div>
+            <ion-list id="invitado-list2" class=" ">
+                <label class="item item-input btn-brief" id="invitado-input4" name="email">
+                    <input type="text" placeholder="Email" ng-model="usuario.email">
+                </label>
+            </ion-list>
+            <div class="spacer" style="width: 300px; height: 14px;"></div>
+            <label class="item item-input btn-brief" id="invitado-input5" name="contrasena">
+                <input type="text" placeholder="Contraseña" ng-model="usuario.password">
+            </label>
+            <div class="spacer" style="width: 300px; height: 26px;"></div>
+            <button ng-click="login()" id="invitado-button3" style="color:#FFFFFF;" class=" button button-royal  button-block ">Continuar</button>
+        </form>
+    </ion-content>
+</ion-view>

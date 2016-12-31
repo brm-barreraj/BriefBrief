@@ -1,0 +1,44 @@
+<ion-view title="Programar reunión" id="page15" class=" ">
+    <ion-content padding="true" class="has-header" scroll="false">
+        <div class="item item-body item-borderless" id="programarReuniN-list-item-container22" style="padding: 5px;">
+            <p id="programarReuniN-markdown38" style="float: left;margin-top:15px;color:#5B9AA9;font-size:15px;text-align:center;" class=" ">
+                <strong>Programar reunión</strong>
+            </p>
+            <a ng-click="programar(programarData)" id="programarReuniN-button20" style="color:#5B9AA9;float:right;" class=" button button-light button-large icon ion-android-checkbox-outline "></a>
+        </div>
+        <div class="item item-body item-borderless" id="programarReuniN-list-item-container22" style="padding: 5px;">
+            <p id="programarReuniN-markdown38" style="margin-top:0px;color:#5B9AA9;font-size:15px;text-align:center;" class=" ">
+                <strong>Mensaje</strong>
+            </p>
+            <label class="item item-input btn-brief" id="crearBriefP2-textarea1">
+                <textarea placeholder="Escribe tu respuesta" rows="5" ng-model="programarData.mensaje"></textarea>
+            </label>
+        </div>
+        <div class="item item-body item-borderless" id="programarReuniN-list-item-container23" style="padding: 5px;">
+            <p id="programarReuniN-markdown39" style="margin-top:0px;color:#5B9AA9;font-size:12px;text-align:center;" class=" ">
+                <strong>Fecha</strong>
+            </p>
+            <label class="item item-input btn-brief">
+                <input type="date" placeholder="" ng-model="programarData.fechaCompromiso">
+            </label>
+        </div>
+        <div class="item item-body item-borderless" id="programarReuniN-list-item-container24" style="padding: 5px;">
+            <p id="programarReuniN-markdown40" style="margin-top:0px;color:#5B9AA9;font-size:12px;text-align:center;" class=" ">
+                <strong>Hora</strong>
+            </p>
+            <label class="item item-input btn-brief">
+                <input type="time" placeholder="" ng-model="programarData.horaCompromiso">
+            </label>
+        </div>
+        <div class="item item-body item-borderless" id="programarReuniN-list-item-container25" style="padding: 5px;">
+            <p id="programarReuniN-markdown41" style="margin-top:0px;color:#5B9AA9;font-size:12px;text-align:center;" class=" ">
+                <strong>Lugar</strong>
+            </p>
+            <div id="programarReuniN-button-bar6" class=" button-bar " >
+                <button id="programarReuniN-button24" style="font-size:14px;" ng-class="tipoCompromiso == 2 ? 'button button-royal button-block' : 'button button-royal  button-block button-outline'" ng-click="selTipoCompromiso(2)">BRM</button>
+                <button id="programarReuniN-button25" style="font-size:14px;" ng-class="tipoCompromiso == 3 ? 'button button-royal button-block' : 'button button-royal  button-block button-outline'" ng-click="selTipoCompromiso(3)">Cliente</button>
+                <button id="programarReuniN-button26" style="font-size:14px;" ng-class="tipoCompromiso == 1 ? 'button button-royal button-block' : 'button button-royal  button-block button-outline'" ng-click="selTipoCompromiso(1)">Llamada</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

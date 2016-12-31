@@ -1,0 +1,14 @@
+<ion-view title="Pendientes" id="page3" class=" ">
+    <ion-content padding="true" class="has-header">
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list id="activos-list3" >
+            <ion-item class="item-icon-right royal" ng-repeat="brief in briefs" ng-click="selectBrief(brief.id)">
+                <h2royal>{{brief.titulo}}
+                    <p>{{brief.fecha}}</p>
+                    <i class="icon ion-ios-person"></i>
+                </h2royal>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
