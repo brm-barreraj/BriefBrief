@@ -7,6 +7,13 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+
+  .state('tabsController', {
+    url: '/appTaps',
+    templateUrl: 'templates/tabsController.html',
+    abstract:true
+  })
+
   
   .state('tabsController.activos', {
     cache: false,
@@ -39,12 +46,6 @@ angular.module('app.routes', [])
         controller: 'cerradosCtrl'
       }
     }
-  })
-
-  .state('tabsController', {
-    url: '/appTaps',
-    templateUrl: 'templates/tabsController.html',
-    abstract:true
   })
 
   .state('login', {
@@ -88,6 +89,7 @@ angular.module('app.routes', [])
   })
 
   .state('consultaTusBriefs', {
+    cache: false,
     url: '/brmConsultaBrief',
     templateUrl: 'templates/consultaTusBriefs.html',
     controller: 'consultaTusBriefsCtrl'
@@ -112,6 +114,7 @@ angular.module('app.routes', [])
   })
 
   .state('programarReunion', {
+    cache: false,
     url: '/programarReunion/:idBrief',
     templateUrl: 'templates/programarReunion.html',
     controller: 'programarReunionCtrl'

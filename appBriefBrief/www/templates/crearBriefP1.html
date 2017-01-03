@@ -1,12 +1,11 @@
-<ion-view title="Crear Brief P1" id="page9" class=" ">
+<ion-view id="page9" class=" ">
     <ion-content padding="true" class="has-header">
         <ion-list id="crearBriefP1-list8" class=" ">
             <ion-item class="item-icon-left royal  item-borderless" id="crearBriefP1-list-item21">
                 <i class="icon ion-ios-list"></i>CREA TU BRIEF</ion-item>
         </ion-list>
         <div class="">
-            <a class="item-marca" ng-repeat="marca in marcas" ng-click="next(marca.id)">
-                {{marca.nombre}}
+            <a class="item-marca" ng-repeat="marca in marcas" ng-click="next(marca.id)" style="background: url(http://162.213.37.11:81/img/logos/{{marca.id}}.jpg); background-size: contain;">
             </a>
         </div>
     </ion-content>

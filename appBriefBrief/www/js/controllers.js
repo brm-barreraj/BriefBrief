@@ -7,9 +7,11 @@ function ($scope, $rootScope, $stateParams, $ionicLoading, $ionicPopup, $state, 
 	if (userData != null && userData.id != "") {
 		if (userData.idTipoUsuario == 2 || userData.idTipoUsuario == "2") {
 			// brm = 2
+			$rootScope.statusListBrief = false;
 			$rootScope.statusAddBrief = false;
 		} else{
 			// cliente = 1 y 3
+			$rootScope.statusListBrief = true;
 			$rootScope.statusAddBrief = true;
 		};
 	}
@@ -22,6 +24,14 @@ function ($scope, $rootScope, $stateParams, $ionicLoading, $ionicPopup, $state, 
 		localStorage.removeItem('us3r4ppBr13f');
 		$state.go('tipoUsuario');
 	}
+
+	$scope.go = function (ruta){
+		$state.go(ruta);
+	}
+
+	$scope.goListBrief = function (){
+		$state.go("consultaTusBriefs");
+	}
 }])
   
 .controller('activosCtrl', ['$scope', '$rootScope', '$stateParams', '$state', '$ionicLoading', '$ionicPopup', 'ServiceGeneral',
@@ -30,12 +40,13 @@ function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, 
 	if (userData.idTipoUsuario == 2 || userData.idTipoUsuario == "2") {
 		// brm = 2
 		$rootScope.statusAddBrief = false;
+		$rootScope.statusListBrief = true;
 	} else{
 		// cliente = 1 y 3
 		$rootScope.statusAddBrief = true;
+		$rootScope.statusListBrief = false;
 	};
 	$scope.briefs = [];
-	$scope.estadoScroll = false;
 	var idEstado = 1;
 
 	// Refresh
@@ -333,10 +344,12 @@ function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, 
 			// brm = 2 
 			$state.go('consultaTusBriefs');
 			$rootScope.statusAddBrief = false;
+			$rootScope.statusListBrief = true;
 		} else{
 			// cliente = 1 y 3
 			$state.go('tabsController.activos');
 			$rootScope.statusAddBrief = true;
+			$rootScope.statusListBrief = false;
 		};
 	} else{
 
@@ -348,6 +361,8 @@ function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, 
 
 .controller('internaBriefCtrl', ['$scope', '$rootScope', '$stateParams', '$state', '$ionicLoading', '$ionicPopup', 'ServiceGeneral',
 function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, ServiceGeneral) {
+	// 
+	$rootScope.statusListBrief = false;
 	var idBrief = $stateParams.idBrief;
 	var userData = JSON.parse( window.localStorage.getItem('us3r4ppBr13f'));
 	var parameters = {
@@ -369,10 +384,16 @@ function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, 
 	},function(err){
 		$ionicLoading.hide();
 	});
+
+
+	$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+		viewData.enableBack = true;
+	});
 }])
 
 .controller('consultaTusBriefsCtrl', ['$scope', '$rootScope', '$stateParams', '$state', '$ionicLoading', '$ionicPopup', 'ServiceGeneral',
 function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, ServiceGeneral) {
+	$rootScope.statusListBrief = false;
 	var userData = JSON.parse( window.localStorage.getItem('us3r4ppBr13f'));
 	var idUsuario = userData.id;
 	$ionicLoading.show({
@@ -411,6 +432,7 @@ function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, 
 
 .controller('brmInternaBriefCtrl', ['$scope', '$rootScope', '$stateParams', '$state', '$ionicLoading', '$ionicPopup', 'ServiceGeneral',
 function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, ServiceGeneral) {
+	$rootScope.statusListBrief = true;
 	var userData = JSON.parse( window.localStorage.getItem('us3r4ppBr13f'));
 	var idUsuario = userData.id;
 	var idBrief = $stateParams.idBrief;
@@ -458,6 +480,13 @@ function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, 
 
 	$scope.goProgramar = function(idBrief){
 		$state.go("programarReunion",{idBrief: idBrief});
+	}
+
+	$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+		viewData.enableBack = true;
+	});
+	$scope.asd = function (){
+		alert(123);
 	}
 }])
    
@@ -576,7 +605,34 @@ function ($scope, $filter, $rootScope, $stateParams, $state, $ionicLoading, $ion
 	var userData = JSON.parse( window.localStorage.getItem('us3r4ppBr13f'));
 	var idUsuario = userData.id;
 	var idBrief = $stateParams.idBrief;
-	$scope.tipoCompromiso = 2;
+	$scope.programarData = {};
+	$scope.programarData = {};
+	var parameters = {
+		accion : "getBrief",
+		idUsuario: idUsuario,
+		idBrief: idBrief,
+		idMarca: 0,
+		idEstado: 0,
+		desde: 0
+	};
+	ServiceGeneral.post(parameters)
+	.then(function(result){
+		$ionicLoading.hide();
+		if(result.error == 1){
+			var res = result.data[0];
+			$scope.tipoCompromiso = (res.idTipoCompromiso && parseInt(res.idTipoCompromiso) > 0) ? res.idTipoCompromiso : 2;
+			console.log("res.fechaCompromiso",res.fechaCompromiso);
+			var myDate = new Date(res.fechaCompromiso);
+			myDate.setDate(myDate.getDate() + 1);
+			$scope.programarData.fechaCompromiso = (res && res.fechaCompromiso && res.fechaCompromiso != "") ? myDate  : "";
+			$scope.programarData.horaCompromiso = (res && res.horaCompromiso && res.horaCompromiso != "") ? new Date('2016-01-01 '+res.horaCompromiso) : "";
+		}else{
+			console.log("error","Ocurrio un error");
+		}
+	},function(err){
+		$ionicLoading.hide();
+	});
+	
 
 	/* Lugares
 		Llamada -> 1

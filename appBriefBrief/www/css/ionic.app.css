@@ -9721,12 +9721,7 @@ a.button {
 a.item-marca {
   width: 70px;
   height: 70px;
-  background: #5b9aa9;
-  color: white;
   border-radius: 60px;
-  text-align: center;
-  line-height: 14px;
-  padding-top: 20px;
   float: left;
   margin: 10px 20px;
 }
@@ -9748,7 +9743,7 @@ a.item-marca {
 .icon-brm{
   width: 55%;
   margin-top: 27px;
-  content: url(../img/icos_font/ico_project.svg);
+  content: url(../img/icos_font/ico_project-c.svg);
 }
 
 ion-header-bar.bar.bar-header {
@@ -9759,4 +9754,14 @@ ion-header-bar.bar.bar-header {
   border-top: 1px #5B9AA9 solid; 
   border-bottom: 1px #5B9AA9 solid; 
   margin: 30px auto;
+}
+
+#menu-list11 .icon:before {
+  font-size: 26px;
+  margin-right: 10px;
+  color: #5b9aa9;
+}
+
+.icons-vistos svg {
+    width: 20px;
 }

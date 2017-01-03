@@ -50,7 +50,6 @@
      
     <script src="js/services.js"></script>
     
-
     <!-- Only required for Tab projects w/ pages in multiple tabs 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->
@@ -59,25 +58,19 @@
   <body ng-app="app" animation="slide-left-right-ios7">
     <div>
 
-       <!--  <ion-header-bar align-title="center" class="bar-positive">
-          <div class="buttons">
-            <button class="button" ng-click="doSomething()">Left Button</button>
-          </div>
-          <h1 class="title"><img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="43" /></h1>
-          <div class="buttons">
-            <button class="button">Right Button</button>
-          </div>
-        </ion-header-bar> -->
-
       <ion-side-menus enable-menu-with-back-views="true" data-componentid="side-menu21" ng-controller="menuCtrl">
         <ion-side-menu-content>
             <ion-nav-bar class="bar-royal">
                 <ion-nav-back-button></ion-nav-back-button>
+                <ion-nav-buttons side="left">
+                  <button ng-if="statusListBrief" class="button button-icon button-clear ion-pie-graph" menu-toggle="left" ng-click="goListBrief()"></button>
+                  <button ng-if="statusAddBrief" ng-click="goAddBrief()" class="button button-icon  ion-plus-circled" style="margin-right:20px"></button>
+                </ion-nav-buttons>
                 <ion-nav-buttons side="right">
-                  <button ng-if="statusAddBrief" ng-click="goAddBrief()" class="button button-icon  ion-plus-circled" menu-toggle="right" style="margin-right:20px"></button>
                   <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
                 </ion-nav-buttons>
             </ion-nav-bar>
+
             <ion-nav-view></ion-nav-view>
         </ion-side-menu-content>
         <ion-side-menu side="right" id="side-menu21" style="background-color:#FFFFFF;">
@@ -86,11 +79,11 @@
             </ion-header-bar>
             <ion-content padding="false" class="side-menu-right has-header">
                 <ion-list id="menu-list11" class=" " data-componentid="list11">
-                    <ion-item id="menu-list-item23" ui-sref="tabsController.activos" menu-close="" class="  " data-componentid="list-item23">Activos</ion-item>
-                    <ion-item id="menu-list-item24" ui-sref="tabsController.pendientes" menu-close="" class="  " data-componentid="list-item24">Pendientes</ion-item>
-                    <ion-item id="menu-list-item25" ui-sref="tabsController.cerrados" menu-close="" class="  " data-componentid="list-item25">Cerrados</ion-item>
-                    <ion-item ng-if="statusAddBrief" id="menu-list-item28" ui-sref="crearBriefP1" menu-close="" class="  " data-componentid="list-item28">Crear Brief</ion-item>
-                    <ion-item id="menu-list-item30" ng-click="logout()" menu-close="" class="  " data-componentid="list-item30">Cerrar sesión</ion-item>
+                    <ion-item class="icon ion-android-checkmark-circle" id="menu-list-item23" ng-click="go('tabsController.activos')" menu-close=""  data-componentid="list-item23"> Activos</ion-item>
+                    <ion-item class="icon ion-ios-time-outline" id="menu-list-item24" ng-click="go('tabsController.pendientes')" menu-close=""  data-componentid="list-item24"> Pendientes</ion-item>
+                    <ion-item class="icon ion-social-buffer-outline" id="menu-list-item25" ng-click="go('tabsController.cerrados')" menu-close=""  data-componentid="list-item25"> Cerrados</ion-item>
+                    <ion-item ng-if="statusAddBrief" class="icon ion-plus-circled" id="menu-list-item28" ng-click="go('crearBriefP1')" menu-close=""  data-componentid="list-item28"> Crear Brief</ion-item>
+                    <ion-item class="icon ion-log-out" id="menu-list-item30" ng-click="logout()" menu-close=""  data-componentid="list-item30"> Cerrar sesión</ion-item>
                 </ion-list>
             </ion-content>
         </ion-side-menu>
