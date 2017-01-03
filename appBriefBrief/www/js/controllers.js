@@ -442,7 +442,7 @@ function ($scope, $rootScope, $stateParams, $state, $ionicLoading, $ionicPopup, 
 		idBrief: idBrief,
 		idMarca: 0,
 		idEstado: 0,
-		desde: 0
+		desde: 0,
 	};
 	ServiceGeneral.post(parameters)
 	.then(function(result){
