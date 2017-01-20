@@ -37,10 +37,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
         .startInit("ee77a4a7-ddd7-4a0e-b955-ae3ca1ca82b0")
         .handleNotificationOpened(notificationOpenedCallback)
         .endInit();
-        window.plugins.OneSignal.getIds(function(ids) {
-          window.localStorage.setItem('pl4y3r1dBr13f', JSON.stringify(ids['userId']));
-        });
-
+        
+      window.plugins.OneSignal.getIds(function(ids) {
+        window.localStorage.setItem('pl4y3r1dBr13f', JSON.stringify(ids['userId']));
+      });
     }
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
