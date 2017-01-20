@@ -606,7 +606,6 @@ function ($scope, $filter, $rootScope, $stateParams, $state, $ionicLoading, $ion
 	var idUsuario = userData.id;
 	var idBrief = $stateParams.idBrief;
 	$scope.programarData = {};
-	$scope.programarData = {};
 	var parameters = {
 		accion : "getBrief",
 		idUsuario: idUsuario,
